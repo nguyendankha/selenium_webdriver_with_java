@@ -1,2 +1,5 @@
 /target/
 test-output/
+/HEAD
+/config
+/description
