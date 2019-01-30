@@ -2,6 +2,10 @@ package Basic;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+
+import java.util.Iterator;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +33,21 @@ public class ElementHandling {
 			System.out.println("Search box is displayed");
 		} else {
 			System.out.println("Search box is NOT displayed");
+		}
+	}
+	
+	@Test
+	public void findMultipleElementsOnPage() {
+		String inputXpath = "//input";
+		By allInputElements = By.xpath(inputXpath);
+		List<WebElement> listOfInput =  driver.findElements(allInputElements);
+		if (listOfInput.size() != 0) {
+			for (Iterator iterator = listOfInput.iterator(); iterator.hasNext();) {
+				WebElement webElement = (WebElement) iterator.next();
+				System.out.println(webElement.getAttribute("class"));
+			}
+		} else {
+			System.out.println("Not found any item!!!");
 		}
 	}
 
