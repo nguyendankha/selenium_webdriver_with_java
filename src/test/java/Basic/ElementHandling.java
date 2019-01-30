@@ -34,6 +34,7 @@ public class ElementHandling {
 
 	@AfterClass
 	public void afterClass() {
+		driver.close();
 		driver.quit();
 	}
 
